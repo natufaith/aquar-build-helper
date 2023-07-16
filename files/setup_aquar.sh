@@ -10,12 +10,12 @@ echo '********安装&挂载NFS********'
 apt install nfs-common -y
 mkdir -p /opt/aquar/storages/aquarpool/
 echo 'mount nfs'
-mount -t nfs $nfspath:/mnt/aquarpool /opt/aquar/storages/aquarpool/
+mount -t nfs $nfspath:/mnt/Spawning /opt/aquar/storages/aquarpool/
 if ! grep -q '##\[aquar config start\]##' /etc/fstab;
 then
     cat >> /etc/fstab <<EOF
 ##[aquar config start]##
-$nfspath:/mnt/aquarpool /opt/aquar/storages/aquarpool nfs defaults,_netdev 0 0
+$nfspath:/mnt/Spawning /opt/aquar/storages/aquarpool nfs defaults,_netdev 0 0
 ##[aquar config end]##
 EOF
 else
@@ -175,7 +175,7 @@ services:
     ports:
       - 8042:2342 # [local port]:[container port]
     environment:
-      PHOTOPRISM_ADMIN_PASSWORD: "admin"
+      PHOTOPRISM_ADMIN_PASSWORD: "3.14159oK"
       PHOTOPRISM_HTTP_PORT: 2342
       PHOTOPRISM_HTTP_COMPRESSION: "gzip"
       PHOTOPRISM_DEBUG: "false"
@@ -192,7 +192,7 @@ services:
       PHOTOPRISM_DATABASE_SERVER: "mariadb:3306"
       PHOTOPRISM_DATABASE_NAME: "photoprism"
       PHOTOPRISM_DATABASE_USER: "root"
-      PHOTOPRISM_DATABASE_PASSWORD: "root"
+      PHOTOPRISM_DATABASE_PASSWORD: "3.14159oK"
       PHOTOPRISM_SITE_URL: "http://39.100.115.231:8142/"
       PHOTOPRISM_SITE_TITLE: "PhotoPrism"
       PHOTOPRISM_SITE_CAPTION: "Browse Your Life"
@@ -215,7 +215,7 @@ services:
       - /opt/aquar/src/docker-compose/mariadb.init.d:/docker-entrypoint-initdb.d
     environment:
       MYSQL_DATABASE: nextcloud
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: 3.14159oK
       TZ: "Asia/Shanghai"
     command:
       [
