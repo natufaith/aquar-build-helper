@@ -227,7 +227,7 @@ services:
       - "3306:3306"
     restart: unless-stopped
   filerun:
-    image: filerun/filerun
+    image: filerun/filerun:8.1
     container_name: filerun
     environment:
       FR_DB_HOST: mariadb
@@ -277,7 +277,7 @@ services:
       - 8172:8172
     restart: unless-stopped
   qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:latest
+    image: johngong/qbittorrent:latest
     container_name: qbittorrent
     environment:
       - PUID=1000
