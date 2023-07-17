@@ -277,7 +277,7 @@ services:
       - 8172:8172
     restart: unless-stopped
   qbittorrent:
-    image: johngong/qbittorrent:latest
+    image: linuxserver/qbittorrent:latest
     container_name: qbittorrent
     environment:
       - PUID=1000
